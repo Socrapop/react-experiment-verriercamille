@@ -1,0 +1,241 @@
+/* GENERAL STYLING */
+html {
+  background: rgb(29, 29, 29);
+  color: white;
+}
+html * {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.App {
+  margin: 50px auto;
+  width: 90%;
+  max-width: 900px;
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+.site-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 100px;
+}
+.site-title:after {
+  content: "";
+  width: 100%;
+  height: 3px;
+  position: absolute;
+  background-color: #2ac0cc;
+  bottom: -20px;
+  left: 0;
+}
+.react-confirm-alert-overlay {
+  background: rgba(0, 0, 0, 0.9) !important;
+}
+.react-confirm-alert-body h1 {
+  font-size: 1.3rem;
+}
+.react-confirm-alert-button-group button {
+  padding: 8px 18px !important;
+  transition: 300ms all cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.react-confirm-alert-button-group button:hover {
+  background: rgb(29, 29, 29);
+}
+.btn {
+  display: block;
+
+  padding: 10px 30px;
+  font-weight: 600;
+  border: none;
+  line-height: 1.5;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 300ms all cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.btn:disabled {
+  background: grey;
+  color: rgb(63, 63, 63);
+  cursor: default;
+}
+.btn-add {
+  margin: 20px auto;
+  border: solid 3px #fabb3a;
+  background-color: #fabb3a;
+  color: black;
+}
+
+.btn-add:hover {
+  padding: 10px 34px;
+}
+.btn-add:disabled {
+  border: solid 3px grey;
+  cursor: default;
+}
+.btn-add:disabled:hover {
+  padding: 10px 30px;
+}
+.btn-save {
+  margin: 20px auto 0;
+}
+.btn-save:disabled:hover {
+  background: grey;
+}
+.btn-inline {
+  display: inline-block;
+  margin-right: 10px;
+}
+.btn-default:hover {
+  background-color: #fabb3a;
+}
+.btn-danger {
+  background-color: rgb(201, 56, 56);
+  color: white;
+}
+.btn-danger:hover {
+  background-color: rgb(221, 6, 6);
+}
+/* EDIT ZONE */
+.zone-form label,
+.zone-form input {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+}
+.zone-form label {
+  color: rgb(209, 209, 209);
+  width: 100%;
+  margin-bottom: 10px;
+  font-size: 0.9rem;
+  margin-top: 30px;
+}
+.zone-form input {
+  line-height: 2;
+  font-weight: bold;
+  padding: 5px 10px;
+  font-size: 1rem;
+  border: none;
+}
+
+.suggestion-list-container {
+  width: 100%;
+  max-width: 500px;
+  background: white;
+  color: black;
+  border: 1px grey solid;
+  font-size: 1rem;
+  text-transform: uppercase;
+  position: absolute;
+  z-index: 2;
+}
+.suggestion-title {
+  display: block;
+  font-weight: bold;
+  color: rgb(85, 85, 85);
+  margin: 20px 20px 10px;
+
+  font-size: 1rem;
+}
+.suggestion-list {
+  padding: 0;
+  margin: 0;
+}
+.suggestion-item {
+  list-style: none;
+  padding: 15px 20px;
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+}
+.suggestion-item:hover {
+  background: #eeeeee;
+}
+.suggestion-item .departement {
+  position: absolute;
+  right: 20px;
+  font-weight: 900;
+  color: rgb(104, 104, 104);
+}
+.selected-cities-container {
+  margin: 20px 0;
+}
+.selected-city {
+  display: inline-block;
+  background: #fabb3a;
+  color: white;
+  font-weight: 900;
+  font-size: 1rem;
+  padding: 10px 45px 10px 25px;
+  position: relative;
+  cursor: pointer;
+  margin: 0 10px 10px 0;
+  transition: all 300ms cubic-bezier(0.09, 0.85, 0.22, 0.99);
+}
+.selected-city:hover {
+  display: inline-block;
+  background: #836a3a;
+  font-weight: 900;
+  font-size: 1rem;
+  padding: 10px 45px 10px 25px;
+  position: relative;
+  cursor: pointer;
+  margin: 0 10px 10px 0;
+}
+.selected-city img {
+  position: absolute;
+  right: 15px;
+  top: 12px;
+}
+.selected-city:hover .svgPath {
+  color: black;
+}
+.droppable-zone {
+  background: rgb(56, 56, 56);
+  padding: 20px;
+  display: flex;
+  overflow-x: scroll;
+}
+.draggable-img {
+  display: inline-block;
+  margin: 8px;
+}
+
+/* SINGLE ZONE STYLING */
+.zone {
+  border: 3px #fabb3a solid;
+  border-radius: 8px;
+  padding: 20px;
+  transition: 300ms border cubic-bezier(0.39, 0.575, 0.565, 1);
+  margin-bottom: 30px;
+}
+
+.zone.is-editing {
+  border: 3px grey dashed;
+}
+.zone h2 {
+  margin: 0;
+}
+.zone p {
+  font-weight: 600;
+}
+.zone .zone-single-city {
+  background: white;
+  color: black;
+  padding: 5px 10px;
+  margin-right: 5px;
+}
+.zone-images-container {
+  margin-bottom: 20px;
+}
+.zone-images-container img {
+  display: inline-block;
+  margin-right: 20px;
+}
