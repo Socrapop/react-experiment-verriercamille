@@ -4,21 +4,7 @@ import SingleZone from "./SingleZone";
 
 class ZoneList extends Component {
   state = {
-    zones: [
-      {
-        editing: false,
-        canSubmit: true,
-        images: [
-          { id: 1, url: "https://i.picsum.photos/id/498/100/100.jpg" },
-          { id: 3, url: "https://i.picsum.photos/id/896/100/100.jpg" },
-          { id: 2, url: "https://i.picsum.photos/id/846/100/100.jpg" },
-          { id: 4, url: "https://i.picsum.photos/id/856/100/100.jpg" },
-          { id: 5, url: "https://i.picsum.photos/id/898/100/100.jpg" },
-        ],
-        selectedCities: ["Grenoble", "Lans-en-Vercors"],
-        zoneName: "Fromagers",
-      },
-    ],
+    zones: [],
     isEditing: false,
   };
   onAddClick = () => {
