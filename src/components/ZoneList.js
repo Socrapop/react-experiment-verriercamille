@@ -7,6 +7,9 @@ class ZoneList extends Component {
     zones: [],
     isEditing: false,
   };
+  /*
+   * When user add a zone, add this zone to the state
+   */
   onAddClick = () => {
     this.setState({
       zones: [
@@ -22,11 +25,20 @@ class ZoneList extends Component {
       isEditing: true,
     });
   };
+  /*
+   * Used as Callback function
+   * When a user saves a zone being edited, add this zone in the state
+   */
   onSaveZone = (zone, index) => {
     const newZones = [...this.state.zones];
     newZones.splice(index, 1, zone);
     this.setState({ zones: newZones, isEditing: false });
   };
+
+  /*
+   * Used as Callback function
+   * When user wants to edit a zone, set this zone state
+   */
   onEditZone = (zone, index) => {
     if (this.state.isEditing === true) {
       return;
@@ -36,12 +48,21 @@ class ZoneList extends Component {
     newZones.splice(index, 1, editedZone);
     this.setState({ zones: newZones, isEditing: true });
   };
+  /*
+   * Used as Callback function
+   * When user deletes a zone, remove this zone from the state
+   */
   onDeleteZone = (index) => {
     const newZones = [...this.state.zones];
     newZones.splice(index, 1);
     this.setState({ zones: newZones });
   };
   render() {
+    /*
+     * Render the zone list
+     * if the zone is currently edited call EditZone component
+     * esle call SingleZone component
+     */
     let zonesList;
     if (this.state.zones.length > 0) {
       zonesList = this.state.zones.map((zone, index) => {

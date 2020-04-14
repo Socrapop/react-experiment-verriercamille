@@ -19,6 +19,7 @@ class EditZone extends Component {
     };
   }
   componentDidUpdate() {
+    // Custom "form" validation
     if (
       this.state.selectedCities.length > 0 &&
       this.state.zoneName.length > 0 &&
@@ -33,6 +34,11 @@ class EditZone extends Component {
       this.setState({ canSubmit: false });
     }
   }
+
+  /*
+   * On city input change, get cities from Geo API
+   * then set state with response array
+   */
   onCityInputChange = (e) => {
     const nomCommune = e.target.value;
     this.setState({ cityName: nomCommune });
@@ -52,12 +58,22 @@ class EditZone extends Component {
         this.setState({ cities: firstCities });
       });
   };
+  /*
+   * Set state when image order is changed
+   */
   onImageOrderChange = (images) => {
     this.setState({ images: images });
   };
+  /*
+   * Set state when the zone name is changed
+   */
   onZoneNameChange = (e) => {
     this.setState({ zoneName: e.target.value });
   };
+  /*
+   * When user click the suggested cities from Geo API
+   * Add a new selected city to the state, and clear the search field
+   */
   onSuggestionClick = (city) => {
     const cityname = city.target.dataset.name;
     if (this.state.selectedCities.length <= 2) {
@@ -67,21 +83,31 @@ class EditZone extends Component {
     }
     this.setState({ cityName: "", cities: [] });
   };
-  //When clicking the delete icon on a city, get the index and slice it from our selected cities array, then setState
+
+  /*
+   * When clicking the delete icon on a selected city,
+   * get the index and slice it from our selected cities array,
+   * then set state
+   */
   onDeleteSelectedCity = (e) => {
     let updatedSelectedCities = [...this.state.selectedCities];
     updatedSelectedCities.splice(e.target.dataset.index, 1);
 
     this.setState({ selectedCities: updatedSelectedCities });
   };
+  /*
+   * On form submit, use parent component callback function
+   */
   onSave = (e) => {
     e.preventDefault();
     this.props.onSave(this.state, this.props.index);
   };
 
   render() {
+    /*
+     * Search Suggestions component template
+     */
     let suggestionComponent;
-    let selectedCitiesElements;
     if (this.state.cities) {
       suggestionComponent = (
         <SearchSuggestions
@@ -90,6 +116,10 @@ class EditZone extends Component {
         />
       );
     }
+    /*
+     * Selected cities with removal buttons template
+     */
+    let selectedCitiesElements;
     if (this.state.selectedCities) {
       selectedCitiesElements = this.state.selectedCities.map((city, index) => {
         return (
@@ -106,7 +136,6 @@ class EditZone extends Component {
       });
     }
 
-    //Render return
     return (
       <div className="zone is-editing">
         <form onSubmit={this.onSave} className="zone-form">

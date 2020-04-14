@@ -11,6 +11,10 @@ class ImageContainer extends Component {
   }
 
   componentDidMount = () => {
+    /*
+     * Generate 5 images from picsum if it's a newly created component
+     * else, we use the images sent in props
+     */
     if (this.state.images.length === 0) {
       for (let i = 0; i < 5; i++) {
         const randomInt = new Date().getTime();
@@ -21,6 +25,7 @@ class ImageContainer extends Component {
             },
           })
           .then((response) => {
+            //Each image has an id (for our drag and drop) and a url
             this.setState({
               images: [
                 ...this.state.images,
@@ -32,6 +37,10 @@ class ImageContainer extends Component {
       }
     }
   };
+
+  /*
+   * react-beautiful-dnd function, when user is endding an image drag
+   */
   onDragEnd = (result) => {
     const { destination, source } = result;
     if (!destination) {
@@ -43,7 +52,7 @@ class ImageContainer extends Component {
     ) {
       return;
     }
-
+    // We reorder our state image array
     const newImages = [...this.state.images];
     const sortedImage = newImages.splice(source.index, 1)[0];
     newImages.splice(destination.index, 0, sortedImage);

@@ -1,5 +1,7 @@
 import React from "react";
-
+/*
+ * Returns the suggestion list from Geo API sent by parent component
+ */
 const SearchSuggestions = (props) => {
   const suggestionList = props.cities.map((city) => {
     return (

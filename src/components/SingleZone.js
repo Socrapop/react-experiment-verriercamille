@@ -3,9 +3,18 @@ import { confirmAlert } from "react-confirm-alert"; // Import
 import "react-confirm-alert/src/react-confirm-alert.css"; // Import css
 
 class SingleZone extends Component {
+  /*
+   * When edit button is clicked, launch onEdit() parent callback function
+   */
   onEditClick = () => {
     this.props.onEdit(this.props.zone, this.props.index);
   };
+  /*
+   * When delete button is clicked
+   * Open an alert popup (using react-confirl-alert)
+   * On confirmation, delete this zone
+   * Else, abort
+   */
   onDeleteClick = () => {
     confirmAlert({
       title: "Êtes-vous sur de vouloir supprimer cette zone ?",
@@ -17,15 +26,19 @@ class SingleZone extends Component {
         },
         {
           label: "Annuler",
-          onClick: () => console.log("Annulé"),
+          onClick: () => {
+            return;
+          },
         },
       ],
     });
   };
-  render() {
-    let selectedCities;
-    let images;
 
+  render() {
+    /*
+     * Selected cities template
+     */
+    let selectedCities;
     selectedCities = this.props.zone.selectedCities.map((city, index) => {
       return (
         <span className="zone-single-city" key={index}>
@@ -33,6 +46,10 @@ class SingleZone extends Component {
         </span>
       );
     });
+    /*
+     * Show images template
+     */
+    let images;
     images = this.props.zone.images.map((image, index) => {
       return <img src={image.url} alt="" key={index} />;
     });
