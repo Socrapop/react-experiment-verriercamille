@@ -1,7 +1,7 @@
 /* GENERAL STYLING */
 html {
-  background: rgb(29, 29, 29);
-  color: white;
+  background: white;
+  color: black;
 }
 html * {
   box-sizing: border-box;
@@ -26,16 +26,17 @@ code {
 .site-title {
   position: relative;
   display: inline-block;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
-.site-title:after {
-  content: "";
-  width: 100%;
-  height: 3px;
-  position: absolute;
-  background-color: #2ac0cc;
-  bottom: -20px;
-  left: 0;
+
+
+.header-txt-container{
+  margin-bottom: 50px;
+  font-size: 13px;
+  border-bottom: 2px solid grey;
+  background: #f4f4f4;
+  padding: 15px;
+  line-height: 1.6;
 }
 .react-confirm-alert-overlay {
   background: rgba(0, 0, 0, 0.9) !important;
@@ -52,7 +53,6 @@ code {
 }
 .btn {
   display: block;
-
   padding: 10px 30px;
   font-weight: 600;
   border: none;
@@ -62,22 +62,22 @@ code {
   transition: 300ms all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 .btn:disabled {
-  background: grey;
-  color: rgb(63, 63, 63);
+  background: rgb(231, 231, 231);
+  color: rgb(177, 177, 177);
   cursor: default;
 }
 .btn-add {
   margin: 20px auto;
-  border: solid 3px #fabb3a;
-  background-color: #fabb3a;
-  color: black;
+  border: solid 3px #1bb1ec;
+  background-color: #1bb1ec;
+  color: white;
 }
 
 .btn-add:hover {
   padding: 10px 34px;
 }
 .btn-add:disabled {
-  border: solid 3px grey;
+  border: solid 1px rgb(187, 187, 187);
   cursor: default;
 }
 .btn-add:disabled:hover {
@@ -85,16 +85,19 @@ code {
 }
 .btn-save {
   margin: 20px auto 0;
+  background: #1bb1ec;
+  color: white;
 }
 .btn-save:disabled:hover {
-  background: grey;
+  background: rgb(231, 231, 231);
+  
 }
 .btn-inline {
   display: inline-block;
   margin-right: 10px;
 }
 .btn-default:hover {
-  background-color: #fabb3a;
+  background-color: #1bb1ec;
 }
 .btn-danger {
   background-color: rgb(201, 56, 56);
@@ -111,18 +114,30 @@ code {
   max-width: 500px;
 }
 .zone-form label {
-  color: rgb(209, 209, 209);
+  color: rgb(80, 80, 80);
   width: 100%;
   margin-bottom: 10px;
   font-size: 0.9rem;
   margin-top: 30px;
+  font-weight: bold;
 }
 .zone-form input {
   line-height: 2;
   font-weight: bold;
   padding: 5px 10px;
+  background: #ffffff;
   font-size: 1rem;
-  border: none;
+  border: 1px solid #dfdfdf;
+  border-bottom: 2px solid grey;
+  transition: 300ms all ease-in-out;
+  box-shadow: none;
+}
+.zone-form input:focus{
+  border-bottom: 2px solid #1bb1ec;
+  box-shadow:  0px 2px 10px rgb(221, 221, 221);
+}
+.zone-form input:hover {
+  box-shadow:  0px 2px 10px rgb(221, 221, 221);
 }
 
 .suggestion-list-container {
@@ -166,10 +181,15 @@ code {
 }
 .selected-cities-container {
   margin: 20px 0;
+  background: #f4f4f4;
+  padding: 15px;
+}
+.selected-cities-container label{
+  margin-top: 0;
 }
 .selected-city {
   display: inline-block;
-  background: #fabb3a;
+  background: #525252;
   color: white;
   font-weight: 900;
   font-size: 1rem;
@@ -181,7 +201,7 @@ code {
 }
 .selected-city:hover {
   display: inline-block;
-  background: #836a3a;
+  background: #e72214;
   font-weight: 900;
   font-size: 1rem;
   padding: 10px 45px 10px 25px;
@@ -198,7 +218,7 @@ code {
   color: black;
 }
 .droppable-zone {
-  background: rgb(56, 56, 56);
+  background: rgb(236, 236, 236);
   padding: 20px;
   display: flex;
   overflow-x: scroll;
@@ -210,7 +230,7 @@ code {
 
 /* SINGLE ZONE STYLING */
 .zone {
-  border: 3px #fabb3a solid;
+  border: 3px #1bb1ec solid;
   border-radius: 8px;
   padding: 20px;
   transition: 300ms border cubic-bezier(0.39, 0.575, 0.565, 1);
