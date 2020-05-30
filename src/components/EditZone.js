@@ -139,7 +139,7 @@ class EditZone extends Component {
     return (
       <div className="zone is-editing">
         <form onSubmit={this.onSave} className="zone-form">
-          <label htmlFor="nom">Nom de la zone (obligatoire)</label>
+          <label htmlFor="nom">Nom de la zone <span>(obligatoire)</span></label>
           <input
             name="nom"
             id="nom"
@@ -147,7 +147,7 @@ class EditZone extends Component {
             value={this.state.zoneName}
             onChange={this.onZoneNameChange}
           />
-          <label htmlFor="ville">Villes dans la zone (entre 1 et 3)</label>
+          <label htmlFor="ville">Villes dans la zone <span>(entre 1 et 3)</span></label>
           <input
             name="ville"
             id="ville"
