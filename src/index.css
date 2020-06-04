@@ -15,7 +15,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .App {
-  margin: 50px auto;
+  margin: 70px auto 50px;
   width: 90%;
   max-width: 900px;
 }
@@ -26,12 +26,14 @@ code {
 .site-title {
   position: relative;
   display: inline-block;
-  margin-bottom: 20px;
+  margin-bottom: 0
+}
+.site-title + p{
+  margin-bottom: 30px;
 }
 
 
 .header-txt-container{
-  margin-bottom: 50px;
   font-size: 13px;
   border-bottom: 2px solid grey;
   background: #f4f4f4;

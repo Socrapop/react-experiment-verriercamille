@@ -14,7 +14,7 @@ function App() {
         <li><a href="https://www.npmjs.com/package/react-confirm-alert">Popup de confirmation - react-confirm-alert</a></li></ul>
         </div> 
         <h1 className="site-title">Expérimentation sur ReactJS</h1>
-        <p>Ajoutez des zones géographiques et leurs spots touristiques (images aléatoires), modifiez ou éditez ces zones.</p>
+        <p>Ajoutez des zones géographiques et leurs spots touristiques correspondants :</p>
         
       </header>
       <ZoneList />

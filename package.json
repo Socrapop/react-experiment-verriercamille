@@ -1,6 +1,6 @@
 {
-  "homepage": "https://sandbox.verriercamille.com/ascanio/",
-  "name": "ascanio-test",
+  "homepage": "https://sandbox.verriercamille.com/react-experiment/",
+  "name": "react-experiment",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
